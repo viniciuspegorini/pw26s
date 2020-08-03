@@ -1,12 +1,10 @@
-
 # Aulas da disciplina Tópicos Avançados em Programação para Web - PW26S
 
 ## Back-end 
 
-### softwares
-
+### Softwares
+- JDK 11 ou superior ([https://jdk.java.net/](https://jdk.java.net/))
 - IDE: (configurada com o lombok disponível em: [https://projectlombok.org/](https://projectlombok.org/))
-	- JDK 11 ou superior ([https://jdk.java.net/](https://jdk.java.net/))
 	- Spring Tools Suite 4 ([https://spring.io/tools](https://spring.io/tools))
 	- ItelliJ IDEA ([https://www.jetbrains.com/pt-br/idea/](https://www.jetbrains.com/pt-br/idea/)) free para estudantes
 	- Eclipse IDE for Enterprise Java Developers ([https://www.eclipse.org/downloads/packages/](https://www.eclipse.org/downloads/packages/))
@@ -19,7 +17,7 @@
 	
 ## Front-end 
 
-### softwares
+### Softwares
 
 - IDE:
 	- Visual Studio Code ([https://code.visualstudio.com/download](https://code.visualstudio.com/download))
