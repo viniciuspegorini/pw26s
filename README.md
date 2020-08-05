@@ -6,7 +6,7 @@
 - JDK 11 ou superior ([https://jdk.java.net/](https://jdk.java.net/))
 - IDE: (configurada com o lombok disponível em: [https://projectlombok.org/](https://projectlombok.org/))
 	- Spring Tools Suite 4 ([https://spring.io/tools](https://spring.io/tools))
-	- ItelliJ IDEA ([https://www.jetbrains.com/pt-br/idea/](https://www.jetbrains.com/pt-br/idea/)) free para estudantes
+	- IntelliJ IDEA ([https://www.jetbrains.com/pt-br/idea/](https://www.jetbrains.com/pt-br/idea/)) free para estudantes
 	- Eclipse IDE for Enterprise Java Developers ([https://www.eclipse.org/downloads/packages/](https://www.eclipse.org/downloads/packages/))
 - SDBG:
 	- Postgresql ([https://www.postgresql.org/download/](https://www.postgresql.org/download/))
