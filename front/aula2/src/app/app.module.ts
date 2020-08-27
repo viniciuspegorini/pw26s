@@ -8,20 +8,40 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { GeneroListComponent } from './genero/genero-list/genero-list.component';
+
+import {TableModule} from 'primeng/table';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {ToastModule} from 'primeng/toast';
+import {DialogModule} from 'primeng/dialog';
+
+import {ConfirmationService} from 'primeng/api';
+import {MessageService} from 'primeng/api';
+import { GeneroService } from './genero/genero.service';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    GeneroListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    TableModule,
+    ConfirmDialogModule,
+    ToastModule,
+    DialogModule
   ],
   providers: [
+    ConfirmationService,
+    MessageService,
+    GeneroService
   ],
   bootstrap: [AppComponent]
 })
