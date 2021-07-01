@@ -28,19 +28,21 @@
   </p-table>
   <p-confirmDialog></p-confirmDialog>
 
-  <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal" [responsive]="true" >
-    <div class="row">
-      <div class="col-sm-12">
-        <div class="form-group">
-          <label for="nome">Nome</label>
-          <input type="text" id="nome" name="nome" class="form-control" 
-            [(ngModel)]="categoriaEdit.nome">
+  <p-dialog header="Cadastro" [(visible)]="showDialog" modal="modal">
+    <form [formGroup]="form" (ngSubmit)="save()">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" class="form-control" formControlName="nome">
+          </div>
         </div>
       </div>
-    </div>
-    <p-footer>
-      <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
-      <button type="button" class="btn btn-success" (click)="save()">Salvar</button>
-    </p-footer>
+      <p-footer>
+        <button type="button" class="btn btn-default" (click)="cancel()">Cancelar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
+      </p-footer>
+    </form>
   </p-dialog>
+
 </div>

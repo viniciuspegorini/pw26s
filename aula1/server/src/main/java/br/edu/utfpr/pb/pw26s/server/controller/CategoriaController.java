@@ -18,12 +18,12 @@ public class CategoriaController {
 	@Autowired
 	private CategoriaService categoriaService;
 	
-	@GetMapping
+	@GetMapping // https://localhost/categoria
 	public List<Categoria> findAll() {
 		return categoriaService.findAll();
 	}
 
-	@GetMapping("page")
+	@GetMapping("page") // https://localhost/categoria?page=1&size=10&order=descricao&asc=true
 	public Page<Categoria> findAll(@RequestParam int page,
 						   @RequestParam int size,
 						   @RequestParam(required = false) String order,
@@ -37,7 +37,7 @@ public class CategoriaController {
 		return categoriaService.findAll(pageRequest);
 	}
 	
-	@GetMapping("{id}")
+	@GetMapping("{id}") // https://localhost/categoria/1
 	public Categoria findOne(@PathVariable Integer id) {
 		return categoriaService.findOne(id);
 	}

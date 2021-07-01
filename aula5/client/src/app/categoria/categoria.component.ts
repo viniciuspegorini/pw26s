@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../model/categoria';
 import { CategoriaService } from './categoria.service';
 import { Message, ConfirmationService, MessageService } from 'primeng/api';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-categoria',
@@ -11,50 +12,61 @@ import { Message, ConfirmationService, MessageService } from 'primeng/api';
 export class CategoriaComponent implements OnInit {
 
   categorias: Categoria[];
-  categoriaEdit = new Categoria();
   showDialog = false;
-  msgs: Message[] = [];
+  form: FormGroup;
 
-  constructor(private categoriaService: CategoriaService,
+  constructor(private fb: FormBuilder,
+              private categoriaService: CategoriaService,
               private confirmationService: ConfirmationService,
-              private messageService: MessageService) { }
+              private messageService: MessageService) {
+    this.form = this.fb.group(
+      {
+        id: [null],
+        nome: ['', Validators.required]
+      }
+    );
+  }
 
   ngOnInit() {
     this.findAll();
   }
 
   findAll() {
-    this.categoriaService.findAll().subscribe( e => this.categorias = e);
+    this.categoriaService.findAll().subscribe(e => this.categorias = e);
   }
 
   newEntity() {
-    this.categoriaEdit = new Categoria();
+    this.form.reset();
     this.showDialog = true;
   }
 
   save() {
-    this.categoriaService.save(this.categoriaEdit).subscribe( e => {
-      this.categoriaEdit = new Categoria();
+    const categoria = this.form.getRawValue();
+    this.categoriaService.save(categoria).subscribe(e => {
+      this.form.reset();
       this.findAll();
       this.showDialog = false;
-      this.messageService.add({severity: 'success', summary: 'Confirmado',
-                    detail: 'Registro salvo com sucesso!'});
-      },
+      this.messageService.add({
+        severity: 'success', summary: 'Confirmado',
+        detail: 'Registro salvo com sucesso!'
+      });
+    },
       error => {
-        this.messageService.add({severity: 'error', summary: 'Erro',
-                    detail: 'Falha ao salvar o registro!'});
+        this.messageService.add({
+          severity: 'error', summary: 'Erro',
+          detail: 'Falha ao salvar o registro!'
+        });
       }
     );
   }
 
   cancel() {
     this.showDialog = false;
-    this.categoriaEdit = new Categoria();
+    this.form.reset();
   }
 
   edit(categoria: Categoria) {
-    // this.generoEdit = genero;
-    this.categoriaEdit = Object.assign({}, categoria);
+    this.form.patchValue(categoria);
     this.showDialog = true;
   }
 
@@ -67,11 +79,15 @@ export class CategoriaComponent implements OnInit {
       accept: () => {
         this.categoriaService.delete(categoria.id).subscribe(() => {
           this.findAll();
-          this.msgs = [{severity: 'success', summary: 'Confirmado',
-                    detail: 'Registro removido com sucesso!'}];
+          this.messageService.add({
+            severity: 'success', summary: 'Confirmado',
+            detail: 'Registro removido com sucesso!'
+          });
         }, error => {
-          this.msgs = [{severity: 'error', summary: 'Erro',
-                    detail: 'Falha ao remover o registro!'}];
+          this.messageService.add({
+            severity: 'error', summary: 'Erro',
+            detail: 'Falha ao remover o registro!'
+          });
         });
       }
     });

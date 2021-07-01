@@ -18,6 +18,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
 				.antMatchers("/categoria/**").hasAnyRole("ADMIN", "USER")
 				.antMatchers("/produto/**").hasAnyRole("ADMIN", "USER")
 				.antMatchers("/marca/**").hasAnyRole("ADMIN", "USER")
+				.antMatchers("/registro/**").permitAll()
 				.anyRequest().authenticated();
 	}
 	

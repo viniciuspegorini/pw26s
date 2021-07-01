@@ -1,9 +1,9 @@
 
-insert into categoria (descricao) values ('Informática');
-insert into categoria (descricao) values ('UD');
-insert into categoria (descricao) values ('Cozinha');
-insert into categoria (descricao) values ('Móveis');
-insert into categoria (descricao) values ('Eletrônico');
+insert into categoria (nome) values ('Informática');
+insert into categoria (nome) values ('UD');
+insert into categoria (nome) values ('Cozinha');
+insert into categoria (nome) values ('Móveis');
+insert into categoria (nome) values ('Eletrônico');
 
 insert into produto (nome, descricao, valor, categoria_id) values ('Refrigerador 429L','Refrigerador 429L Branco, duplex....',1990.0,2);
 insert into produto (nome, descricao, valor, categoria_id) values ('Notebook Arus 15.6','Notebook Arus 15.6 Core I7, 16Gb Ram...',2449.0,1);
