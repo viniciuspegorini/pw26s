@@ -20,6 +20,7 @@ INSERT INTO permissao (nome) values('ROLE_GERENTE');
 INSERT INTO permissao (nome) values('ROLE_ALUNO');
 INSERT INTO permissao (nome) values('ROLE_PROFESSOR');
 
+-- senha = 123
 INSERT INTO usuario(nome, username, password) VALUES ('Administrador', 'admin','$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');
 INSERT INTO usuario(nome, username, password) VALUES ('Teste', 'teste','$2a$10$.PVIfB07x.SfMYTcToxL0.yxcLWU0GbS2NUO1W1QAvqMm/TsFhVem');
 
