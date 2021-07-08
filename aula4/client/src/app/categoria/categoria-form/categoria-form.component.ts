@@ -10,14 +10,13 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class CategoriaFormComponent implements OnInit {
 
-  categoria: Categoria;
+  categoria = new Categoria();
 
   constructor(private categoriaService: CategoriaService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.categoria = new Categoria();
     const id = Number(this.route.snapshot.params.id);
     if (id) {
       this.categoriaService.findOne(id).subscribe(e => {

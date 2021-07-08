@@ -10,7 +10,7 @@ import { CategoriaService } from '../categoria.service';
 export class CategoriaListComponent implements OnInit {
 
 
-  categorias: Categoria[];
+  categorias: Categoria[] = [];
 
   constructor(private categoriaService: CategoriaService) { }
 
