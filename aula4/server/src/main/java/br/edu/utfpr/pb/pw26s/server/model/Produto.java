@@ -32,4 +32,7 @@ public class Produto implements Serializable {
     @JoinColumn(name = "categoria_id", referencedColumnName = "id")
     private Categoria categoria;
 
+    @ManyToOne
+    @JoinColumn(name = "marca_id", referencedColumnName = "id")
+    private Marca marca;
 }

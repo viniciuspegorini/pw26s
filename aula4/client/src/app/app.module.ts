@@ -10,6 +10,7 @@ import { CategoriaFormComponent } from './categoria/categoria-form/categoria-for
 import { CategoriaListComponent } from './categoria/categoria-list/categoria-list.component';
 import { CategoriaService } from './categoria/categoria.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ProdutoModule } from './produto/produto.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ProdutoModule
   ],
   providers: [
     CategoriaService
