@@ -1,0 +1,21 @@
+<h2>Lista de Marcas</h2>
+<a class="btn btn-primary" [routerLink]="['/marca/new']" >Nova Marca</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let marca of marcas">
+            <td>{{marca.id}}</td>
+            <td>{{marca.nome}}</td>
+            <td>
+                <a [routerLink]="['/marca', marca.id]" class="btn btn-primary">Editar</a> &nbsp;
+                <a (click)="delete(marca.id)" class="btn btn-danger">Remover</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

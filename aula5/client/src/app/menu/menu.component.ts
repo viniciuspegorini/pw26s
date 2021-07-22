@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login/login.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,13 +7,9 @@ import { LoginService } from '../login/login.service';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor() { }
 
-  ngOnInit() {
-  }
-
-  hasRole(permissao: string): boolean {
-    return this.loginService.hasRole(permissao);
+  ngOnInit(): void {
   }
 
 }

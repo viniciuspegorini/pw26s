@@ -1,5 +1,11 @@
-<app-menu *ngIf="isAuthenticated"></app-menu>
-<main>
-  <router-outlet></router-outlet>
+<app-menu></app-menu>
+<main class="flex-shrink-0">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
 </main>
-<p-toast position="top-center" [baseZIndex]="1000"></p-toast>
+<footer class="footer mt-auto py-3 bg-light footer-mg">
+  <div class="container">
+    <span class="text-muted">Place sticky footer content here.</span>
+  </div>
+</footer>

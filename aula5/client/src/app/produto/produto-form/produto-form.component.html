@@ -1,0 +1,78 @@
+<h1 class="mt-5">Cadastro de Produtos</h1>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" class="form-control" formControlName="nome">
+                    <div *ngIf="form.controls.nome.invalid && (form.controls.nome.dirty || form.controls.nome.touched)">
+                        <div *ngIf="form.controls.nome.errors!.required">
+                            <small class="form-text text-danger">O campo nome é obrigatório.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="valor">Valor</label>
+                    <input type="text" id="valor" name="valor" class="form-control" formControlName="valor">
+                    <div
+                        *ngIf="form.controls.valor.invalid && (form.controls.valor.dirty || form.controls.valor.touched)">
+                        <div *ngIf="form.controls.valor.errors!.required">
+                            <small class="form-text text-danger">O campo valor é obrigatório.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" rows="5" cols="30" class="form-control"
+                        formControlName="descricao"></textarea>
+                    <div
+                        *ngIf="form.controls.descricao.invalid && (form.controls.descricao.dirty || form.controls.descricao.touched)">
+                        <div *ngIf="form.controls.descricao.errors!.required">
+                            <small class="form-text text-danger">O campo descricao é obrigatório.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select class="form-control" formControlName="categoria" [compareWith]="compareFn">
+                        <option [ngValue]="null" disabled>Selecione uma categoria</option>
+                        <option *ngFor="let c of categorias" [ngValue]="c">{{c.nome}}</option>
+                    </select>
+                    <div
+                        *ngIf="form.controls.categoria.invalid && (form.controls.categoria.dirty || form.controls.categoria.touched)">
+                        <div *ngIf="form.controls.categoria.errors!.required">
+                            <small class="form-text text-danger">O campo categoria é obrigatório.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <select class="form-control" formControlName="marca" [compareWith]="compareFn">
+                        <option [ngValue]="null" disabled>Selecione uma marca</option>
+                        <option *ngFor="let m of marcas" [ngValue]="m">{{m.nome}}</option>
+                    </select>
+                    <div
+                        *ngIf="form.controls.marca.invalid && (form.controls.marca.dirty || form.controls.marca.touched)">
+                        <div *ngIf="form.controls.marca.errors!.required">
+                            <small class="form-text text-danger">O campo marca é obrigatório.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fim class row-->
+        <div class="row">
+            <button type="button" class="btn btn-default" [routerLink]="['/categoria']">Cancelar</button>
+            <button type="submit" class="btn btn-success" [disabled]="form.invalid">Salvar</button>
+        </div>
+    </form>
+</div>

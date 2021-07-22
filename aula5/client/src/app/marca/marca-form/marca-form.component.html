@@ -1,0 +1,23 @@
+<h1 class="mt-5">Cadastro de Marcas</h1>
+<div class="container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" class="form-control" formControlName="nome">
+                    <div *ngIf="form.controls.nome.invalid && (form.controls.nome.dirty || form.controls.nome.touched)">
+                        <div *ngIf="form.controls.nome.errors!.required">
+                            <small class="form-text text-danger">O campo nome é obrigatório.</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Fim class row-->
+        <div class="row">
+            <button type="button" class="btn btn-default" [routerLink]="['/categoria']" >Cancelar</button>
+            <button type="submit" class="btn btn-success"[disabled]="form.invalid" >Salvar</button>
+        </div>
+    </form>
+</div>
