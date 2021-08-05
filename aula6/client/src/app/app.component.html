@@ -1,0 +1,11 @@
+<app-menu *ngIf="isAuthenticated"></app-menu>
+<main class="flex-shrink-0">
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+</main>
+<footer *ngIf="isAuthenticated" class="footer mt-auto py-3 bg-light footer-mg">
+  <div class="container">
+    <span class="text-muted">&copy; 2021 UTFPR. Todos os direitos reservados.</span>
+  </div>
+</footer>
